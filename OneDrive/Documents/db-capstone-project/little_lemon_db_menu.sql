@@ -24,12 +24,12 @@ DROP TABLE IF EXISTS `menu`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `menu` (
   `MenuID` int NOT NULL AUTO_INCREMENT,
+  `MenuItemsID` int NOT NULL,
+  `MenuName` varchar(100) NOT NULL,
   `Cuisines` varchar(100) NOT NULL,
-  `Starters` varchar(100) NOT NULL,
-  `Courses` varchar(100) NOT NULL,
-  `Drinks` varchar(100) NOT NULL,
-  `Desserts` varchar(100) NOT NULL,
-  PRIMARY KEY (`MenuID`)
+  PRIMARY KEY (`MenuID`),
+  KEY `menuitemid_fk_idx` (`MenuItemsID`),
+  CONSTRAINT `menuitemid_fk` FOREIGN KEY (`MenuItemsID`) REFERENCES `menuitems` (`MenuItemsID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-13 16:21:47
+-- Dump completed on 2025-01-14 14:52:40

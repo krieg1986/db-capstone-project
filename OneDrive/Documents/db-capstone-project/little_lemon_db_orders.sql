@@ -29,9 +29,12 @@ CREATE TABLE `orders` (
   `TotalCost` decimal(15,6) NOT NULL,
   `StatusID` int NOT NULL,
   `MenuID` int NOT NULL,
+  `CustomerID` int NOT NULL,
   PRIMARY KEY (`OrderID`),
   KEY `statusid_fk_idx` (`StatusID`),
   KEY `menuid_fk_idx` (`MenuID`),
+  KEY `customerid_fk_idx` (`CustomerID`),
+  CONSTRAINT `customerid_fk` FOREIGN KEY (`CustomerID`) REFERENCES `customers` (`CustomerID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `menuid_fk` FOREIGN KEY (`MenuID`) REFERENCES `menu` (`MenuID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `statusid_fk` FOREIGN KEY (`StatusID`) REFERENCES `orderstatus` (`StatusID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -55,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-13 16:21:47
+-- Dump completed on 2025-01-14 14:52:39
