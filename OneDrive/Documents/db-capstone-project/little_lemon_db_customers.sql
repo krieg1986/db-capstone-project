@@ -23,14 +23,11 @@ DROP TABLE IF EXISTS `customers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customers` (
-  `CustomerID` int NOT NULL AUTO_INCREMENT,
-  `CustomerFirstName` varchar(100) NOT NULL,
-  `CustomerLastName` varchar(100) NOT NULL,
-  `CustomerDetails` varchar(255) NOT NULL,
-  `BookingID` int NOT NULL,
-  PRIMARY KEY (`CustomerID`),
-  KEY `bookingid_fk_idx` (`BookingID`),
-  CONSTRAINT `bookingid_fk` FOREIGN KEY (`BookingID`) REFERENCES `bookings` (`BookingID`) ON DELETE CASCADE ON UPDATE CASCADE
+  `CustomerID` int NOT NULL,
+  `CustomerFirstName` varchar(100) DEFAULT NULL,
+  `CustomerLastName` varchar(100) DEFAULT NULL,
+  `CustomerDetails` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`CustomerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -40,6 +37,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+INSERT INTO `customers` VALUES (1,'Smith','Jason','Quebec'),(2,'Andrew','Bernard','Ontario'),(3,'Lisa','Campbell','Alberta');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-14 14:52:40
+-- Dump completed on 2025-01-15 20:05:19

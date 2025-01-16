@@ -23,18 +23,21 @@ DROP TABLE IF EXISTS `orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orders` (
-  `OrderID` int NOT NULL AUTO_INCREMENT,
+  `OrderID` int NOT NULL,
   `OrderDate` date NOT NULL,
   `OrderQuantity` int NOT NULL,
   `TotalCost` decimal(15,6) NOT NULL,
   `StatusID` int NOT NULL,
   `MenuID` int NOT NULL,
   `CustomerID` int NOT NULL,
+  `BookingID` int NOT NULL,
   PRIMARY KEY (`OrderID`),
   KEY `statusid_fk_idx` (`StatusID`),
   KEY `menuid_fk_idx` (`MenuID`),
   KEY `customerid_fk_idx` (`CustomerID`),
-  CONSTRAINT `customerid_fk` FOREIGN KEY (`CustomerID`) REFERENCES `customers` (`CustomerID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  KEY `bookingid_fk_idx` (`BookingID`),
+  CONSTRAINT `bookingid_fk` FOREIGN KEY (`BookingID`) REFERENCES `bookings` (`BookingID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `customerid4_fk` FOREIGN KEY (`CustomerID`) REFERENCES `customers` (`CustomerID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `menuid_fk` FOREIGN KEY (`MenuID`) REFERENCES `menu` (`MenuID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `statusid_fk` FOREIGN KEY (`StatusID`) REFERENCES `orderstatus` (`StatusID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -58,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-14 14:52:39
+-- Dump completed on 2025-01-15 20:05:20
