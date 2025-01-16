@@ -1,2 +1,2 @@
 CREATE PROCEDURE GetMaxQuantity() 
-SELECT MAX(OrderQuantity) FROM Orders;
+SELECT MAX(OrderQuantity) AS "Max Quantity in Order" FROM Orders;

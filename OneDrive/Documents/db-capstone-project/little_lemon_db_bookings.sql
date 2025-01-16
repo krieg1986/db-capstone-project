@@ -23,14 +23,14 @@ DROP TABLE IF EXISTS `bookings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bookings` (
-  `BookingID` int NOT NULL,
-  `BookingDate` date NOT NULL,
-  `TableNumber` int NOT NULL,
-  `OrderID` int NOT NULL,
+  `BookingID` int NOT NULL AUTO_INCREMENT,
+  `BookingDate` date DEFAULT NULL,
+  `TableNumber` int DEFAULT NULL,
+  `CustomerID` int DEFAULT NULL,
   PRIMARY KEY (`BookingID`),
-  KEY `orderid_fk_idx` (`OrderID`),
-  CONSTRAINT `orderid_fk` FOREIGN KEY (`OrderID`) REFERENCES `orders` (`OrderID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  KEY `customerid2_fk_idx` (`CustomerID`),
+  CONSTRAINT `foreignkey_cus` FOREIGN KEY (`CustomerID`) REFERENCES `customers` (`CustomerID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `bookings` (
 
 LOCK TABLES `bookings` WRITE;
 /*!40000 ALTER TABLE `bookings` DISABLE KEYS */;
+INSERT INTO `bookings` VALUES (4,'2023-01-02',9,3),(33,'2022-10-10',5,1),(34,'2022-11-12',3,3),(35,'2022-10-11',2,2),(36,'2022-10-13',2,1),(43,'2022-12-17',6,3),(44,'2022-12-17',6,3),(45,'2022-12-30',6,3);
 /*!40000 ALTER TABLE `bookings` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-14 14:52:39
+-- Dump completed on 2025-01-15 20:05:20
