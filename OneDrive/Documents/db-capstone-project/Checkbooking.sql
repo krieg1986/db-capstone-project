@@ -6,9 +6,9 @@ BEGIN
     FROM Bookings
     WHERE BookingDate = date AND TableNumber = number;
     IF (var > 0) THEN
-    SELECT "Table is already booked" AS "Booking Status";
+    SELECT CONCAT("Table ",number," is already booked") AS "Booking Status";
     ELSE
-    SELECT "Table is not booked" AS "Booking Status";
+    SELECT CONCAT("Table ",number, " is not booked") AS "Booking Status";
     END IF;
 END //
 

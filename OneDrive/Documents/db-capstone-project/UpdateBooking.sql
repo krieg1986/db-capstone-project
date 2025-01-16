@@ -4,6 +4,6 @@ BEGIN
 	UPDATE Bookings 
     SET BookingDate = date
     WHERE BookingID = id;
-    SELECT "Booking updated" AS "Confirmation";
+    SELECT CONCAT("Booking ",id," updated") AS "Confirmation";
     
 END //
