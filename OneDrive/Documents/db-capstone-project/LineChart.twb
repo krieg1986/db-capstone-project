@@ -22,7 +22,7 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='EqSK5enRQCuwiucbZmZelA_27d5699c265a45b38d7a8155ed768be1_LittleLemon_data' name='excel-direct.17hm6qu13c6n6j1a1nx1j0hdga94'>
-            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/krieg/Downloads/EqSK5enRQCuwiucbZmZelA_27d5699c265a45b38d7a8155ed768be1_LittleLemon_data.xlsx' interpretationMode='0' password='' server='' validate='no' />
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/krieg/Downloads/Little_Lemon_data.xlsx' interpretationMode='0' password='' server='' validate='no' />
           </named-connection>
         </named-connections>
         <relation connection='excel-direct.17hm6qu13c6n6j1a1nx1j0hdga94' name='Orders' table='[Orders$]' type='table'>
@@ -414,7 +414,6 @@
       </column>
       <column datatype='string' name='[Postal Code]' role='dimension' semantic-role='[ZipCode].[Name]' type='nominal' />
       <column datatype='integer' name='[Row Number]' role='dimension' type='ordinal' />
-      <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
       <column caption='Orders' datatype='table' name='[__tableau_internal_object_id__].[Orders_FBC20A62B05C42769190B3566220502D]' role='measure' type='quantitative' />
       <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
       <semantic-values>
