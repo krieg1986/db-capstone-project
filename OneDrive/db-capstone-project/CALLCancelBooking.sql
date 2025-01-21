@@ -1,1 +1,0 @@
-CALL CancelBooking(9);

@@ -1,1 +1,0 @@
-CALL AddValidBooking( "2022-12-18", 10, 4);
