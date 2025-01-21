@@ -1,1 +1,0 @@
-CALL UpdateBooking( 9, "2022-12-17");
